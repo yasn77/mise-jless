@@ -8,15 +8,15 @@ plugin_dir=$(dirname "$(dirname "$current_script_path")")
 # shellcheck source=./lib/utils.bash
 source "${plugin_dir}/lib/utils.bash"
 
-mkdir -p "$MISE_DOWNLOAD_PATH"
+mkdir -p "$ASDF_DOWNLOAD_PATH"
 
-release_file="$MISE_DOWNLOAD_PATH/$TOOL_NAME-$MISE_INSTALL_VERSION.zip"
+release_file="$ASDF_DOWNLOAD_PATH/$TOOL_NAME-$ASDF_INSTALL_VERSION.zip"
 
 # Download tar.gz file to the download directory
-download_release "$MISE_INSTALL_VERSION" "$release_file"
+download_release "$ASDF_INSTALL_VERSION" "$release_file"
 
 #  Extract contents of tar.gz file into the download directory
-unzip "$release_file" -d "$MISE_DOWNLOAD_PATH"
+unzip "$release_file" -d "$ASDF_DOWNLOAD_PATH"
 
 # Remove the tar.gz file since we don't need to keep it
 rm "$release_file"
