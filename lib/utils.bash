@@ -4,7 +4,7 @@ set -euo pipefail
 
 GH_REPO="https://github.com/PaulJuliusMartinez/jless"
 TOOL_NAME="jless"
-TOOL_TEST="jless -V"
+TOOL_TEST="jless"
 
 fail() {
 	echo -e "mise-$TOOL_NAME: $*"
@@ -44,11 +44,12 @@ download_release() {
 
 	if [ "$OS" == "darwin" ]; then
 		OS="apple-darwin"
+		[ "$ARCH" == "arm64" ] && ARCH="aarch64"
 	else
 		OS="unknown-linux-gnu"
 	fi
 
-	RELEASE_FILE="jless-v${version}-${ARCH}_${OS}.zip"
+	RELEASE_FILE="jless-v${version}-${ARCH}-${OS}.zip"
 
 	url="$GH_REPO/releases/download/v${version}/${RELEASE_FILE}"
 
